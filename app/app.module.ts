@@ -11,7 +11,7 @@ import {
   EventDetailsComponent,
   CreateEventComponent,
   EventRouteActivator,
-  EventListResolver
+  EventListResolver,
   CreateSessionComponent,
   SessionListComponent
 } from './events/index'
