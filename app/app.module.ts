@@ -17,6 +17,7 @@ import {
   DurationPipe,
   UpvoteComponent,
   VoterService,
+  LocationValidator
 } from './events/index'
 
 import { EventsAppComponent } from './events-app.component'
@@ -51,7 +52,7 @@ declare let jQuery : Object;
     CreateEventComponent,
     EventDetailsComponent,
     Error404Component,    CreateSessionComponent,
-    SessionListComponent,CollapsibleWellComponent,DurationPipe,SimpleModalComponent,ModalTriggerDirective,UpvoteComponent],
+    SessionListComponent,CollapsibleWellComponent,DurationPipe,SimpleModalComponent,ModalTriggerDirective,UpvoteComponent,LocationValidator],
   bootstrap: [EventsAppComponent],
   providers:[EventService, { provide: TOASTR_TOKEN, useValue: toastr },
     VoterService,
