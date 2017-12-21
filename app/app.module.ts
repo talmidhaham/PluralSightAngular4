@@ -27,13 +27,18 @@ import { NavBarComponent } from './nav/navbar.component'
 
 //import { EventService } from './events/shared/event.service'
 
-import { ToastrService } from './common/toastr.service' 
-import { CollapsibleWellComponent } from './common/collapsible-well.component'
+import { JQ_TOKEN,
+  TOASTR_TOKEN, 
+  Toastr,
+  CollapsibleWellComponent,SimpleModalComponent,ModalTriggerDirective } from './common/index'
+//import { CollapsibleWellComponent } from './common/collapsible-well.component'
 
 import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
 
+declare let toastr : Toastr
+declare let jQuery : Object;
 
 @NgModule({
   imports: [BrowserModule,  RouterModule.forRoot(appRoutes),FormsModule,ReactiveFormsModule],
@@ -44,9 +49,11 @@ import { AuthService } from './user/auth.service'
     CreateEventComponent,
     EventDetailsComponent,
     Error404Component,    CreateSessionComponent,
-    SessionListComponent,CollapsibleWellComponent,DurationPipe],
+    SessionListComponent,CollapsibleWellComponent,DurationPipe,SimpleModalComponent,ModalTriggerDirective],
   bootstrap: [EventsAppComponent],
-  providers:[EventService,ToastrService,EventRouteActivator,EventListResolver,AuthService,
+  providers:[EventService, { provide: TOASTR_TOKEN, useValue: toastr },
+    { provide: JQ_TOKEN, useValue: jQuery },
+    EventRouteActivator,EventListResolver,AuthService,
     { 
       provide: 'canDeactivateCreateEvent', 
       useValue: checkDirtyState 
