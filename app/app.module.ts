@@ -14,7 +14,9 @@ import {
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
-  DurationPipe
+  DurationPipe,
+  UpvoteComponent,
+  VoterService,
 } from './events/index'
 
 import { EventsAppComponent } from './events-app.component'
@@ -49,11 +51,14 @@ declare let jQuery : Object;
     CreateEventComponent,
     EventDetailsComponent,
     Error404Component,    CreateSessionComponent,
-    SessionListComponent,CollapsibleWellComponent,DurationPipe,SimpleModalComponent,ModalTriggerDirective],
+    SessionListComponent,CollapsibleWellComponent,DurationPipe,SimpleModalComponent,ModalTriggerDirective,UpvoteComponent],
   bootstrap: [EventsAppComponent],
   providers:[EventService, { provide: TOASTR_TOKEN, useValue: toastr },
+    VoterService,
     { provide: JQ_TOKEN, useValue: jQuery },
-    EventRouteActivator,EventListResolver,AuthService,
+    EventRouteActivator,
+    EventListResolver,
+    AuthService,
     { 
       provide: 'canDeactivateCreateEvent', 
       useValue: checkDirtyState 
